@@ -5,10 +5,7 @@ export default class Ninja {
     constructor() { }
 
     static get(req, res) {
-        NinjaModel.find({}, function (err, user) {
-            if (err) throw err;
-            res.send({ status: true, data: user });
-        })
+       res.send('hello ninja')
     }
 
     static post(req, res) {
