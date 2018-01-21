@@ -10,7 +10,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/api',router)
 //  mongoose.connect('mongodb://mubashirali:heroku123@ds139844.mlab.com:39844/patientmanagement')
-mongoose.connect('mongodb://mughees605:mughees1997@ds163701.mlab.com:63701/es6-mongoose')
+// mongodb://mubashirali:db123@ds039145.mlab.com:39145/todo
+mongoose.connect('mongodb://mubashirali:db123@ds039145.mlab.com:39145/todo')
 
 app.listen(port,() => {
     console.log("server is runnig on",port)

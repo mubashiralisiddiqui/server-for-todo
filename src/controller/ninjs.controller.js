@@ -5,12 +5,16 @@ export default class Ninja {
     constructor() { }
 
     static get(req, res) {
-       res.send('hello ninja')
+        NinjaModel.find({}, function (err, user) {
+            if (err) throw err;
+            res.send({ status: true, data: user });
+        })
     }
 
     static post(req, res) {
         console.log('req.body ', req.body);
         const newNinja = new NinjaModel(req.body);
+        console.log(req.body, "req.body");
         newNinja.save(function (err, record) {
             if (err) {
                 res.send({ status: false });
@@ -19,7 +23,6 @@ export default class Ninja {
             }
         })
     }
-
     static put(req, res, next) {
         var id = req.params.id;
         NinjaModel.findByIdAndUpdate({ _id: req.params.id }, req.body).then(() => {
