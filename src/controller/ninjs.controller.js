@@ -1,4 +1,6 @@
 import NinjaModel from '../models/ninja.model';
+import ninjaModel from '../models/ninja.model';
+// import ninjaModel from '../models/ninja.model';
 
 export default class Ninja {
 
@@ -37,6 +39,25 @@ export default class Ninja {
             console.log(ninja);
             res.send(ninja)
         })
+    }
+    static completed(req, res, next) {
+        NinjaModel.find({ checked: true }).then((ninja) => {
+            console.log(ninja)
+            res.send(ninja)
+        })
+
+    }
+    static active(req, res, next) {
+        NinjaModel.find({ checked: false }).then((ninja) => {
+            res.send(ninja)
+        })
+    }
+
+    static checkedAll(req, res, next) {
+        NinjaModel.update({ checked: true }).then((ninja) => {
+            res.send(ninja)
+        })
+
     }
 }
 
