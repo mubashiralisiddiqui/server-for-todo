@@ -13,6 +13,7 @@ export default class Ninja {
         })
     }
 
+
     static post(req, res) {
         console.log('req.body ', req.body);
         const newNinja = new NinjaModel(req.body);
